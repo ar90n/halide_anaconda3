@@ -39,7 +39,7 @@ RUN cp -rf ../boost/ /opt/include/
 #Halide
 WORKDIR /tmp
 RUN apt-get -y install libxml2 libpng16-dev libjpeg-dev zlib1g-dev libedit-dev llvm-3.7 llvm-3.7-dev clang-3.7 libgl1-mesa-dev libopenblas-dev
-RUN git clone https://github.com/ar90n/Halide.git
+RUN git clone -b fix_python_bindings_cmake https://github.com/ar90n/Halide.git
 RUN mkdir Halide/build
 WORKDIR Halide/build
 RUN cmake -DLLVM_BIN=`llvm-config-3.7 --bindir` -DLLVM_INCLUDE=`llvm-config-3.7 --includedir` -DLLVM_LIB=`llvm-config-3.7 --libdir` -DLLVM_VERSION=37 ..
